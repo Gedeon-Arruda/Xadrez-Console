@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using tabuleiro;
+using System;
 
 
 namespace xadrez
@@ -41,7 +42,7 @@ namespace xadrez
 
             // #JogadaEspecial roque pequeno
 
-            if (p is Rei && destino.Coluna == origem.Coluna + 2)
+            if (p is Torre && destino.Coluna == origem.Coluna + 2)
             {
                 Posicao origemTorre = new Posicao(origem.Linha, origem.Coluna + 3);
                 Posicao destinoTorre = new Posicao(origem.Linha, origem.Coluna + 1);
@@ -52,7 +53,7 @@ namespace xadrez
 
             // #JogadaEspecial roque grande
 
-            if (p is Rei && destino.Coluna == origem.Coluna - 2)
+            if (p is Torre && destino.Coluna == origem.Coluna - 2)
             {
                 Posicao origemTorre = new Posicao(origem.Linha, origem.Coluna - 4);
                 Posicao destinoTorre = new Posicao(origem.Linha, origem.Coluna - 1);
@@ -99,7 +100,7 @@ namespace xadrez
 
             // #JogadaEspecial roque pequeno
 
-            if (p is Rei && destino.Coluna == origem.Coluna + 2)
+            if (p is Torre && destino.Coluna == origem.Coluna + 2)
             {
                 Posicao origemTorre = new Posicao(origem.Linha, origem.Coluna + 3);
                 Posicao destinoTorre = new Posicao(origem.Linha, origem.Coluna + 1);
@@ -110,7 +111,7 @@ namespace xadrez
 
             // #JogadaEspecial roque grande
 
-            if (p is Rei && destino.Coluna == origem.Coluna - 2)
+            if (p is Torre && destino.Coluna == origem.Coluna - 2)
             {
                 Posicao origemTorre = new Posicao(origem.Linha, origem.Coluna - 4);
                 Posicao destinoTorre = new Posicao(origem.Linha, origem.Coluna - 1);
@@ -294,8 +295,10 @@ namespace xadrez
                 try
                 {
                     bool[,] mat = x.MovimentosPossiveis();
+
                     if (mat[R.Posicao.Linha, R.Posicao.Coluna])
                     {
+                        //Console.ForegroundColor = ConsoleColor.Red;    
                         return true;
                     }
                 }
@@ -354,12 +357,12 @@ namespace xadrez
             ColocarNovaPeca('g', 1, new Cavalo(Tab, Cor.Branca));
             ColocarNovaPeca('h', 1, new Torre(Tab, Cor.Branca));
             ColocarNovaPeca('a', 2, new Peao(Tab, Cor.Branca, this));
-            ColocarNovaPeca('b', 2, new Peao(Tab, Cor.Branca, this));
+            ColocarNovaPeca('b', 2, new Gedev(Tab, Cor.Branca, this));
             ColocarNovaPeca('c', 2, new Peao(Tab, Cor.Branca, this));
             ColocarNovaPeca('d', 2, new Peao(Tab, Cor.Branca, this));
             ColocarNovaPeca('e', 2, new Peao(Tab, Cor.Branca, this));
             ColocarNovaPeca('f', 2, new Peao(Tab, Cor.Branca, this));
-            ColocarNovaPeca('g', 2, new Peao(Tab, Cor.Branca, this));
+            ColocarNovaPeca('g', 2, new Gedev(Tab, Cor.Branca, this));
             ColocarNovaPeca('h', 2, new Peao(Tab, Cor.Branca, this));
 
             ColocarNovaPeca('a', 8, new Torre(Tab, Cor.Preta));
@@ -371,12 +374,12 @@ namespace xadrez
             ColocarNovaPeca('g', 8, new Cavalo(Tab, Cor.Preta));
             ColocarNovaPeca('h', 8, new Torre(Tab, Cor.Preta));
             ColocarNovaPeca('a', 7, new Peao(Tab, Cor.Preta, this));
-            ColocarNovaPeca('b', 7, new Peao(Tab, Cor.Preta, this));
+            ColocarNovaPeca('b', 7, new Gedev(Tab, Cor.Preta, this));
             ColocarNovaPeca('c', 7, new Peao(Tab, Cor.Preta, this));
             ColocarNovaPeca('d', 7, new Peao(Tab, Cor.Preta, this));
             ColocarNovaPeca('e', 7, new Peao(Tab, Cor.Preta, this));
             ColocarNovaPeca('f', 7, new Peao(Tab, Cor.Preta, this));
-            ColocarNovaPeca('g', 7, new Peao(Tab, Cor.Preta, this));
+            ColocarNovaPeca('g', 7, new Gedev(Tab, Cor.Preta, this));
             ColocarNovaPeca('h', 7, new Peao(Tab, Cor.Preta, this));
         }
     }

@@ -33,21 +33,25 @@ namespace xadrez
 
             if (Cor == Cor.Branca)
             {
+                // Frente 01 casa
                 pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
                 if (Tab.PosicaoValida(pos) && Livre(pos))
                 {
                     mat[pos.Linha, pos.Coluna] = true;
                 }
+                // Frente 2 casas se estiver na inicial
                 pos.DefinirValores(Posicao.Linha - 2, Posicao.Coluna);
                 if (Tab.PosicaoValida(pos) && Livre(pos) && QteMovimentos == 0)
                 {
                     mat[pos.Linha, pos.Coluna] = true;
                 }
+                // Na diagonal direita se houve peça inimiga
                 pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
                 if (Tab.PosicaoValida(pos) && ExisteInimigo(pos))
                     {
                     mat[pos.Linha, pos.Coluna] = true;
                 }
+                // Na diagonal esquerda se houve peça inimiga
                 pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
                 if (Tab.PosicaoValida(pos) && ExisteInimigo(pos))
                 {

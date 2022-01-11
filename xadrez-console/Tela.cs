@@ -5,7 +5,6 @@ using xadrez;
 
 namespace xadrez_console
 {
-
     class Tela
     {
 
@@ -47,7 +46,7 @@ namespace xadrez_console
             ConsoleColor aux = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Yellow;
             ImprimirConjunto(partida.PecasCapturadas(Cor.Preta));
-            Console.ForegroundColor= aux;
+            Console.ForegroundColor = aux;
             Console.WriteLine();
 
         }
